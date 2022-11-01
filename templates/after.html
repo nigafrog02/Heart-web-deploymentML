@@ -1,0 +1,83 @@
+<html>
+
+<body bgcolor=#a3cfb4>
+
+    <center>
+
+        <h1>  PREDICTION :  </h1>
+    
+    {% if prediction == 0 %}
+    <h1>No heart disease</h1>  
+    {%else%}
+    <h1>Yes you have heart disease!</h1>
+    {%endif%}
+    <a href='/'>go back to Predict page</a>
+
+
+    {{ age }}
+
+    {% if Gender == "0" %}
+    <h1>Gender : Female</h1>
+    {%else%}
+    <h1>Gender: Male</h1>
+    {%endif%}
+    
+    
+
+    {% if Chestpain == "0"%}
+    <h1>Chest Pain Type : Typical Angina</h1>
+    {% elif Chestpain =="1"%}
+    <h1>Chest Pain Type : Atypical Angina</h1>
+    {% elif Chestpain =="2"%}
+    <h1>Chest Pain Type : Non-anginal pain</h1>
+    {% elif Chestpain =="3"%}
+    <h1>Chest Pain Type : Asymptomatic</h1>
+    {%endif%}
+    
+
+    
+    {{ chol }}
+
+    {{ thalach }}
+
+    {% if Exang == "0" %}
+    <h1>Exercise induced Angina : No</h1>
+    {% elif Exang =="1" %}
+    <h1>Exercise induced Angina : Yes</h1>
+    {%endif%}
+    
+    {{oldpeak}}
+
+    {% if Slope == "0" %}
+    <h1>ECG Slope Type : Upsloping</h1>
+    {% elif Slope =="1" %}
+    <h1>ECG Slope Type : Flat</h1>
+    {% elif Slope =="2" %}
+    <h1>ECG Slope Type : Downsloping</h1>
+    {%endif%}
+
+    {% if Ca == "0" %}
+    <h1>Number of working major vessels : Non-Major Vessels</h1>
+    {% elif Ca =="1" %}
+    <h1>Number of working major vessels : One Major Vessels</h1>
+    {% elif Ca =="2" %}
+    <h1>Number of working major vessels : Two Major Vessels</h1>
+    {% elif Ca =="3" %}
+    <h1>Number of working major vessels : Three Major Vessels</h1>
+    {% elif Ca =="4" %}
+    <h1>Number of working major vessels : Four Major Vessels</h1>
+    {%endif%}
+
+    {% if Thal == "1" %}
+    <h1>Presence of Thalassemia : Normal(Non)</h1>
+    {% elif Thal == "2" %}
+    <h1>Presence of Thalassemia : Fixed Defect</h1>
+    {% elif Thal == "3" %}
+    <h1>Presence of Thalassemia : Reversable Defect</h1>
+    {%endif%}
+
+    </center>
+
+</body>
+
+</html>
