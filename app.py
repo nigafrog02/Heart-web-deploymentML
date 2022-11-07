@@ -6,6 +6,7 @@ import pickle
 import numpy as np
 
 
+
 #create flask app
 app = Flask(__name__)
 bag_model = pickle.load(open('heart.pkl','rb'))
@@ -45,7 +46,7 @@ def predict():
 
 
 
-    age = "Age: {}".format(Age), 
+    age = "{}".format(Age), 
     chol="Cholesterol Level: {}".format(Chol),
     thalach="Thalach Value: {}".format(Thalach),
     oldpeak = "Oldpeak Value: {}".format(Oldpeak))

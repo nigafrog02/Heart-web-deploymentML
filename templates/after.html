@@ -1,83 +1,214 @@
-<html>
-
-<body bgcolor=#a3cfb4>
-
-    <center>
-
-        <h1>  PREDICTION :  </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     
-    {% if prediction == 0 %}
-    <h1>No heart disease</h1>  
-    {%else%}
-    <h1>Yes you have heart disease!</h1>
-    {%endif%}
-    <a href='/'>go back to Predict page</a>
+</head>
 
 
-    {{ age }}
 
-    {% if Gender == "0" %}
-    <h1>Gender : Female</h1>
-    {%else%}
-    <h1>Gender: Male</h1>
-    {%endif%}
+<style>
+ * {
+    font-family: sans-serif;
+}
+
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.button {
+    padding:1em;
+    text-align: center;
+    display:inline-block;
+    text-decoration: none !important;
+    margin:0 auto;
+
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.container{
+  width: 100%;
+  text-align: center;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+<h1 style="text-align:center">Prediction Result</h1>
+
+        <table class="content-table" style="margin-left:auto;margin-right:auto;">
+            <thead>
+              <tr>
+                <th></th>  <td><h1>{% if prediction == 0 %}
+                    No heart disease
+                    {%else%}
+                    Yes you have heart disease!
+                    {%endif%}</td>
+                </h1> 
+              </tr>
+
+              <tr>
+                <th>Age:</th> <td>{{ age }}</td>
+              </tr>
+            
+              <tr>
+                <th>Gender:</th>
+                <td>{% if Gender == "0" %}
+                   Female
+                    {%else%}
+                   Male
+                    {%endif%}</td>
+              </tr>
+
+              <tr>
+                <th>Chestpain:</th>    <td> {% if Chestpain == "0"%}
+                    Typical Angina
+                    {% elif Chestpain =="1"%}
+                    Atypical Angina
+                    {% elif Chestpain =="2"%}
+                    Non-anginal pain
+                    {% elif Chestpain =="3"%}
+                    Asymptomatic
+                    {%endif%}</td>
+              </tr>
+               
+              <tr>
+                <th>Chol:</th> <td>{{ chol }}</td>
+              </tr>
+
+              <tr>
+                <th>Thalach:</th>  <td>{{ thalach }}</td>
+              </tr>
+            
+              <tr>
+                <th>Exang:</th><td>{% if Exang == "0" %}
+                    Exercise induced Angina : No
+                    {% elif Exang =="1" %}
+                    Exercise induced Angina : Yes
+                    {%endif%}</td>
+              </tr>
+                
+              <tr>
+                <th>Oldpeak:</th> <td> {{oldpeak}}</td>
+              </tr>
+            
+              <tr>
+                <th>Slope:</th>  <td> {% if Slope == "0" %}
+                    ECG Slope Type : Upsloping
+                    {% elif Slope =="1" %}
+                    ECG Slope Type : Flat
+                    {% elif Slope =="2" %}
+                    ECG Slope Type : Downsloping
+                    {%endif%}
+                </td>
+              </tr>
+
+              <tr>
+                <th>Ca:</th>   <td> 
+                    {% if Ca == "0" %}
+                   Number of working major vessels : Non-Major Vessels
+                    {% elif Ca =="1" %}
+                    Number of working major vessels : One Major Vessels
+                    {% elif Ca =="2" %}
+                    Number of working major vessels : Two Major Vessels
+                    {% elif Ca =="3" %}
+                    Number of working major vessels : Three Major Vessels
+                    {% elif Ca =="4" %}
+                    Number of working major vessels : Four Major Vessels
+                    {%endif%}
+                </td>
+              </tr>
+            
+              <tr>
+                <th>Thal:</th> <td>{% if Thal == "1" %}
+                    resence of Thalassemia : Normal(Non)
+                    {% elif Thal == "2" %}
+                    Presence of Thalassemia : Fixed Defect
+                    {% elif Thal == "3" %}
+                    Presence of Thalassemia : Reversable Defect</td>
+                {%endif%}
+              </tr>
+                
+              
+            </thead>
+         
+                
+            </tbody>
+          </table>
+
+        </br>
     
-    
+        <div class="container">
+            <a href="/" class="button blue">Back</a>
+        </div>
+        <div class="container">
+          <button onclick="screenshot()">Take screenshot</button>
+      </div>
 
-    {% if Chestpain == "0"%}
-    <h1>Chest Pain Type : Typical Angina</h1>
-    {% elif Chestpain =="1"%}
-    <h1>Chest Pain Type : Atypical Angina</h1>
-    {% elif Chestpain =="2"%}
-    <h1>Chest Pain Type : Non-anginal pain</h1>
-    {% elif Chestpain =="3"%}
-    <h1>Chest Pain Type : Asymptomatic</h1>
-    {%endif%}
-    
-
-    
-    {{ chol }}
-
-    {{ thalach }}
-
-    {% if Exang == "0" %}
-    <h1>Exercise induced Angina : No</h1>
-    {% elif Exang =="1" %}
-    <h1>Exercise induced Angina : Yes</h1>
-    {%endif%}
-    
-    {{oldpeak}}
-
-    {% if Slope == "0" %}
-    <h1>ECG Slope Type : Upsloping</h1>
-    {% elif Slope =="1" %}
-    <h1>ECG Slope Type : Flat</h1>
-    {% elif Slope =="2" %}
-    <h1>ECG Slope Type : Downsloping</h1>
-    {%endif%}
-
-    {% if Ca == "0" %}
-    <h1>Number of working major vessels : Non-Major Vessels</h1>
-    {% elif Ca =="1" %}
-    <h1>Number of working major vessels : One Major Vessels</h1>
-    {% elif Ca =="2" %}
-    <h1>Number of working major vessels : Two Major Vessels</h1>
-    {% elif Ca =="3" %}
-    <h1>Number of working major vessels : Three Major Vessels</h1>
-    {% elif Ca =="4" %}
-    <h1>Number of working major vessels : Four Major Vessels</h1>
-    {%endif%}
-
-    {% if Thal == "1" %}
-    <h1>Presence of Thalassemia : Normal(Non)</h1>
-    {% elif Thal == "2" %}
-    <h1>Presence of Thalassemia : Fixed Defect</h1>
-    {% elif Thal == "3" %}
-    <h1>Presence of Thalassemia : Reversable Defect</h1>
-    {%endif%}
-
-    </center>
-
+        
+    <!--<a href='/'>Go Back to Predict page</a> -->
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"> </script>
+
+<script>
+  function screenshot(){
+    html2canvas(document.body).then(function(canvas){
+
+    var imgdata = canvas.toDataURL('image/png')
+    var doc = new jspdf()
+    doc.addImage(imgdata,'PNG',-145,10)
+    doc.save("Patient.pdf")
+    })
+    
+  }
+</script>
 
 </html>
+

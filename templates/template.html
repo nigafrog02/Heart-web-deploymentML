@@ -38,8 +38,8 @@
       </select>
     </div>
     
-    <div class= "mb-3"><label for="">Cholesterol Level</label><input type="text" name="cholesterol" placeholder="enter cholesterol level" required="required" class="form-control" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  /></div>
-    <div class= "mb-3"><label for="">Thalach Value</label><input type="text" name="Thalach" placeholder="enter Thalach Value" required="required" class="form-control" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" /></div>
+    <div class= "mb-3"><label for="">Cholesterol Level</label><input type="text" name="cholesterol" maxlength="3" placeholder="enter cholesterol level" required="required" class="form-control" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  /></div>
+    <div class= "mb-3"><label for="">Thalach Value</label><input type="text" name="Thalach"  maxlength="3" placeholder="enter Thalach Value" required="required" class="form-control" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" /></div>
     <div class= "mb-3">
       <label for="">Exercise induced Angina (Yes/No)</label>
       <select name="Exang" class="form-control">
@@ -81,7 +81,7 @@
 
     <form action="{{ url_for('back')}}"method="post">
 
-      <div class="container" style="margin-top :20px;"><button type="submit" class="btn btn-primary btn-block btn-large">Back to doctor page</button></div>
+      <div class="container" style="margin-top :-54px;  margin-left :100px"><button type="submit" class="btn btn-primary btn-block btn-large">Back to doctor page</button></div>
     </form>
     
        
